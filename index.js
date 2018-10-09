@@ -21,7 +21,7 @@ const app = express();
 server.applyMiddleware({ app }); // app is from an existing express app
 
 // app.use('/graphql', bodyParser.json(), server);
-models.sequelize.sync().then(() => {
+models.sequelize.sync({ force: true }).then(() => {
   app.listen({ port: 8080 }, () => {
     console.log('Server ready');
   });
